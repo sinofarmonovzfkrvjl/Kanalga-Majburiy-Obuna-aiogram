@@ -17,7 +17,7 @@ async def on_startup():
 @dp.message(CommandStart())
 async def start(message: types.Message):
     is_member = await bot.get_chat_member(chat_id="-1001954730128", user_id=message.from_user.id)
-    if is_member.status in ['MEMBER', 'ADMINISTRATOR', 'CREATOR']:
+    if is_member.status == 'left':
         await message.answer("Kanalga obuna bo'ling")
     else:
         await message.answer(f"Salom {message.from_user.full_name}")
